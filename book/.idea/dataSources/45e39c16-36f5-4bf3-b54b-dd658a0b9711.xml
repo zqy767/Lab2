@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="MySQL - BookSystem@localhost">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="2.6">
+    <schema id="1" name="BookSystem">
+      <visible>1</visible>
+    </schema>
+    <schema id="2" name="csdn4"/>
+    <schema id="3" name="db_for_game"/>
+    <schema id="4" name="employees"/>
+    <schema id="5" name="information_schema"/>
+    <schema id="6" name="mysql"/>
+    <schema id="7" name="performance_schema"/>
+    <table id="8" parent="1" name="Author"/>
+    <table id="9" parent="1" name="Book"/>
+    <column id="10" parent="8" name="Name">
+      <mandatory>1</mandatory>
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="11" parent="8" name="Age">
+      <data-type>int(11)|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <column id="12" parent="8" name="Country">
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="13" parent="8" name="AuthorID">
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <key id="14" parent="8" name="PRIMARY">
+      <columns>AuthorID</columns>
+      <primary>1</primary>
+    </key>
+    <column id="15" parent="9" name="ISBN">
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+    </column>
+    <column id="16" parent="9" name="Title">
+      <mandatory>1</mandatory>
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="17" parent="9" name="AuthorID">
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+    </column>
+    <column id="18" parent="9" name="Publisher">
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="19" parent="9" name="PublishDate">
+      <data-type>date|0</data-type>
+    </column>
+    <column id="20" parent="9" name="Price">
+      <data-type>int(11)|0</data-type>
+      <default-expression>&apos;0&apos;</default-expression>
+    </column>
+    <index id="21" parent="9" name="AuthorID">
+      <columns>AuthorID</columns>
+      <desc-columns></desc-columns>
+    </index>
+    <key id="22" parent="9" name="PRIMARY">
+      <columns>ISBN</columns>
+      <primary>1</primary>
+    </key>
+    <foreign-key id="23" parent="9" name="Book_ibfk_1">
+      <columns>AuthorID</columns>
+      <ref-key>~.Author.PRIMARY</ref-key>
+      <cascade-update-rule>restrict</cascade-update-rule>
+      <cascade-delete-rule>restrict</cascade-delete-rule>
+    </foreign-key>
+  </database-model>
+</dataSource>
